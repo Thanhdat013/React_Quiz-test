@@ -1,0 +1,24 @@
+.homepage-content {
+  position: absolute;
+  background-color: transparent;
+  padding: 100px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50%;
+
+  .title {
+    width: 544px;
+    font-size: 64px;
+    margin-bottom: 30px;
+  }
+
+  .desc {
+    width: 500px;
+    margin-bottom: 40px;
+    font-size: 24px;
+  }
+
+  .homepage-content-btn {
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,196 @@
+{
+  "homePage": {
+    "homePageTitle1": "Có rất nhiều cách để hỏi.....",
+    "homePageTitle2": "Bạn không muốn làm một hình thức nhàm chán. Và khán giả của bạn sẽ không trả lời một. Thay vào đó, hãy tạo một kiểu chữ—và làm cho mọi người hài lòng.",
+    "homePageLogin": "Bắt đầu - hoàn toàn miễn phí",
+    "homePageLogout": " Làm bài kiểm tra ngay bây giờ !"
+  },
+  "header": {
+    "headerBrand": "React-Bootstrap",
+    "headerHome": "Trang chủ",
+    "headerUsers": "Người dùng",
+    "headerAdmin": "Quản trị viên",
+    "headerProfile": "Hồ sơ",
+    "headerLogout": "Đăng xuất",
+    "headerLogin": "  Đăng  nhập",
+    "headerSignup": " Đăng kiý",
+    "headerLanguageVi": " Việt Nam",
+    "headerLanguageEn": " Tiếng Anh",
+    "headerSetting": " Cài đặt"
+  },
+  "quiz": {
+    "quizTitle1": "Bài test: ",
+    "quizPrev": "Trước ",
+    "quizNext": "Tiếp ",
+    "quizFinish": "Kết thúc ",
+    "quizButton": "Đến bài test ",
+    "quizNotice": "Bạn chưa có bài test nào bây giờ You don't have any quiz now... ",
+    "quizName": "Tên bài test",
+    "quizDesc": "Miêu tả",
+    "quizType": "Độ khó",
+    "quizUploadImage": "Tải ảnh lên",
+    "quizPreviewImage": "Xem trước ảnh",
+    "quizClose": "Đóng",
+    "quizSave": "Lưu",
+    "quizDoing": "Làm bài quiz"
+  },
+  "manageQuiz": {
+    "manageQuiz": "Quản lý các bài test",
+    "manageQuizAdd": "Thêm bài test mới ",
+    "manageQuizUpdate": "Cập nhật câu hỏi và câu trả lời cho bài test ",
+    "manageQuizAssign": "Gán bài test"
+  },
+  "tableQuiz": {
+    "tableQuizId": "Id",
+    "tableQuizName": "Tên",
+    "tableQuizDesc": "Miêu tả",
+    "tableQuizDifficult": "Độ khó",
+    "tableQuizUpdate": "Hoạt động",
+    "tableQuizAction": "Cập nhật",
+    "tableQuizDelete": "Xóa",
+    "tableQuizData": "Không tìm thấy dữ liệu"
+  },
+  "deleteQuiz": {
+    "deleteQuizTitle1": "Xác nhận xóa bài test",
+    "deleteQuizConfirm": "Bạn có chắc muốn xóa bài test này : id",
+    "deleteQuizCancel": "Hủy bỏ",
+    "deleteQuizYes": "Xóa"
+  },
+  "addQuiz": {
+    "addQuizTitle": "Thêm bài test mới",
+    "addQuizName": "Tên bài test",
+    "addQuizDesc": "Miêu tả",
+    "addQuizType": "Độ khó"
+  },
+  "assignQuiz": {
+    "assignQuizType": "Chọn bài test",
+    "assignQuizUser": "Chọn người dùng",
+    "assignQuizAssign": "Gán"
+  },
+  "quizQA": {
+    "quizQAType": "Chọn bài test..",
+    "quizQAQuestion": "Câu hỏi",
+    "quizQAAnswer": "Câu trả lời",
+    "quizQAPreviewImage": "Xem trước ảnh",
+    "quizQAUploadImage": "Tải ảnh lên",
+    "quizQARemoveImage": "Xóa bỏ ảnh",
+    "quizQASave": "Lưu câu hỏi",
+    "quizQAAddQuestion": "Thêm câu hỏi mới",
+    "quizQAAddAnswer": "Thêm câu trả lời mới"
+  },
+  "updateQuiz": {
+    "updateQuizTitle": "Cập nhật bài test",
+    "updateQuizName": "Tên",
+    "updateQuizDesc": "Miêu tả",
+    "updateQuizType": "Độ khó"
+  },
+  "resultQuiz": {
+    "resultQuizAnswer": "Kết quả trả lời của bạn",
+    "resultQuizQuestion": "Tổng số câu hỏi: ",
+    "resultQuizAnswerCorrect": "Tổng số câu trả lời đúng: ",
+    "resultQuizShow": "Hiển thị câu trả lời",
+    "resultQuizCancel": "Hủy bỏ"
+  },
+  "user": {
+    "userEmail": "Thư điện tử",
+    "userPassword": "Mật khẩu",
+    "userTagName": "Tên người dùng",
+    "userName": "Tên",
+    "userRole": "Vai trò",
+    "userUSER": "NGƯỜI DÙNG",
+    "userADmin": "QUẢN TRỊ VIÊN",
+    "userUploadImage": "Tải ảnh lên",
+    "userPreviewImage": "Xem trước ảnh"
+  },
+  "addUser": {
+    "addUserTitle": "Thêm người dùng mới",
+    "addUserClose": "Đóng",
+    "addUserSave": "Lưu"
+  },
+  "deleteUser": {
+    "deleteUserConfirm": "Xác nhận xóa người dùng",
+    "deleteUserEmail": "Bạn có chắc là muốn xóa người dùng này : thư điện tử",
+    "deleteUserCancel": "Hủy bỏ",
+    "deleteUserDelete": "Xóa"
+  },
+  "manageUser": {
+    "manageUserTitle": "Quản lý người dùng"
+  },
+  "tableUser": {
+    "tableUserId": "ID",
+    "tableUserName": "Tên",
+    "tableUserEmail": "Thư điện tử",
+    "tableUserRole": "Vai trò",
+    "tableUserAction": "Hành Động",
+    "tableUserView": "Xem",
+    "tableUserUpdate": "Cập nhật",
+    "tableUserDelete": "Xóa",
+    "tableUserData": "Không có dữ liệu",
+    "tableUserPrev": "< Trước",
+    "tableUserNext": "Tiếp >",
+    "tableUserAvatar": "Ảnh đại diện"
+  },
+  "updateUser": {
+    "updateUserTitle": "Cập nhật người dùng",
+    "updateUserClose": "Đóng",
+    "updateUserSave": "Lưu"
+  },
+  "viewUser": {
+    "viewUserTitle": "Xem chi tiết người dùng"
+  },
+  "question": {
+    "question": "Câu hỏi",
+    "questionManage": "Quản lý câu hỏi",
+    "questionQuiz": "Chọn bài test",
+    "questionTitle": "Câu hỏi",
+    "questionAnswer": "Câu trả lời",
+    "questionPreviewImage": "Xem trước ảnh",
+    "questionUploadImage": "Tải ảnh lên",
+    "questionRemoveImage": "Xóa bỏ ảnh",
+    "questionSave": "Lưu câu hỏi"
+  },
+  "addQuestion": {
+    "addQuestionTitle": "Thêm câu hỏi mới"
+  },
+  "admin": {
+    "adminProfile": "Hồ sơ",
+    "adminLogout": "Đăng xuất",
+    "adminSetting": "Cài đặt"
+  },
+  "sideBar": {
+    "sideBarTitle": "Bài test của HoiDanIt",
+    "sideBarDashboard": "Bảng điều khiển",
+    "sideBarManageUser": "Quản lý người dùng",
+    "sideBarManageQuiz": "Quản lý bài test",
+    "sideBarManageQuestion": "Quản lý câu hỏi ",
+    "sideBarViewSource": "Xem nguồn",
+    "sideBarFeature": "Tính năng"
+  },
+  "login": {
+    "loginTitle": "Bạn vẫn chưa có tài khoản?",
+    "loginName": "Hoi dan IT",
+    "loginWelcome": "Xin chào, bạn là ai",
+    "loginEmail": "Thư điện tử",
+    "loginPassword": "Mật khẩu",
+    "loginForgotPassword": "Quên mật khẩu ?",
+    "loginSubmit": "Đăng nhập vào HoiDanIt",
+    "loginBackHome": "Về trang chủ"
+  },
+  "register": {
+    "registerHeader": "Bạn có sẵn sàng để tạo một tài khoản",
+    "registerTitle": "Hoi dan IT",
+    "registerWelcome": "Bắt đầu hành trình của bạn",
+    "registerEmail": "Thư điện tử (*)",
+    "registerPassword": "Mật khẩu (*) ",
+    "registerUsername": "Tên tài khoản (*)",
+    "registerSubmit": "Tạo một tài khoản miễn phí",
+    "registerBackHome": "Về trang chủ"
+  },
+  "dashBoard": {
+    "dashBoardTitle": "Bảng phân tích số liệu",
+    "dashBoardTotalUser": "Tổng số người dùng",
+    "dashBoardTotalQuizzes": "Tổng số bài test",
+    "dashBoardTotalQuestion": "Tổng số câu hỏi",
+    "dashBoardTotalAnswer": "Tổng số câu trả lời"
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "name": "base-react-redux",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "5.16.4",
+    "@testing-library/react": "13.3.0",
+    "@testing-library/user-event": "13.5.0",
+    "axios": "0.27.2",
+    "bootstrap": "^5.2.3",
+    "classnames": "^2.3.2",
+    "i18next": "^22.4.13",
+    "i18next-browser-languagedetector": "^7.0.1",
+    "i18next-http-backend": "^2.2.0",
+    "lodash": "4.17.21",
+    "nprogress": "^0.2.0",
+    "react": "18.2.0",
+    "react-awesome-lightbox": "1.8.1",
+    "react-bootstrap": "^2.7.2",
+    "react-dom": "18.2.0",
+    "react-i18next": "^12.2.0",
+    "react-icons": "4.4.0",
+    "react-paginate": "8.1.4",
+    "react-perfect-scrollbar": "^1.5.8",
+    "react-pro-sidebar": "0.7.1",
+    "react-redux": "8.0.1",
+    "react-router-dom": "^6.9.0",
+    "react-scripts": "5.0.1",
+    "react-select": "^5.7.1",
+    "react-toastify": "9.1.1",
+    "recharts": "^2.5.0",
+    "redux": "4.2.0",
+    "redux-devtools-extension": "2.13.9",
+    "redux-persist": "^6.0.0",
+    "redux-thunk": "2.4.1",
+    "sass": "^1.59.3",
+    "uuid": "^9.0.0",
+    "web-vitals": "2.1.4"
+  },
+  "devDependencies": {
+    "babel-plugin-module-resolver": "^5.0.0",
+    "customize-cra": "^1.0.0",
+    "react-app-rewired": "^2.2.1"
+  },
+  "scripts": {
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-app-rewired eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

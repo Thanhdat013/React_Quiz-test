@@ -1,0 +1,18 @@
+.list-quiz-container {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+
+  .card-img-top {
+    width: 286px;
+    height: 286px;
+    object-fit: cover;
+  }
+
+  .card-body {
+    border-top: 1px solid #ddd;
+  }
+  .card-text {
+    height: 48px;
+  }
+}

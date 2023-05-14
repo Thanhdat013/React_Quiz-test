@@ -1,0 +1,44 @@
+.dashBoard {
+  margin: 12px 8px 0;
+  .dashBoard-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-left: 16px;
+  }
+  .dashBoard-wrap {
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    gap: 20px;
+    --min-height: 300px;
+    .dashBoard-left {
+      min-height: var(--min-height);
+      width: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .dashBoard-total {
+      height: calc(var(--min-height) / 2);
+      width: calc(50% - 10px);
+      justify-content: center;
+      display: flex;
+      align-items: center;
+      border: solid 1px #ccc;
+      border-radius: 6px;
+      flex-direction: column;
+      .dashBoard-total-amount {
+        font-size: 32px;
+        margin-top: 8px;
+      }
+    }
+    .dashBoard-right {
+      width: calc(50% - 20px);
+      height: var(--min-height);
+    }
+  }
+}

@@ -1,0 +1,79 @@
+.wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 12px;
+  border-radius: 4px;
+  min-width: 80px;
+  min-height: 40px;
+  cursor: pointer;
+  background-color: white;
+  border: 1px solid transparent;
+  user-select: none;
+
+  + .wrapper {
+    margin-left: 8px;
+  }
+
+  &.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+}
+
+.icon + .title,
+.title + .icon {
+  margin-left: 8px;
+}
+.icon {
+  display: inline-block;
+  width: 24px;
+  text-align: center;
+}
+
+//Button types
+.round {
+  border-radius: 999px;
+  box-shadow: rgb(0 0 0 / 6%) 0px 2px 8px;
+  border-color: rgba(22, 24, 35, 0.12);
+
+  &:hover {
+    border-color: rgba(22, 24, 35, 0.2);
+    background-color: rgb(255, 255, 255);
+  }
+}
+
+.primary {
+  background-color: #262627;
+  color: white;
+  border-color: #262627;
+
+  &:hover {
+    opacity: 0.8;
+    border-color: #262627;
+  }
+}
+
+.outline {
+  background-color: transparent;
+  color: #262627;
+  border-color: currentColor;
+
+  &:hover {
+    background-color: transparent;
+    border-color: #262627;
+  }
+}
+
+//Disable
+
+// Button sizes
+.small {
+  min-width: 88px;
+  padding: 4px 16px;
+}
+
+.large {
+  min-width: 140px;
+  padding: 14px 16px;
+}

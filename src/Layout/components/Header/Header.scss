@@ -1,0 +1,36 @@
+.navbar-brand {
+  .navbar-brand_logo {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+}
+
+.navbar-nav {
+  .nav-link {
+    &.active {
+      color: #00bfff !important;
+    }
+  }
+}
+
+.languages {
+  display: flex;
+  position: relative;
+  .languages-vi {
+    &::after {
+      content: "";
+      display: block;
+      width: 2px;
+      height: 20px;
+      background-color: #ccc;
+      right: 48%;
+      top: 28%;
+      position: absolute;
+    }
+  }
+  .languages-active {
+    color: red !important;
+  }
+}

@@ -1,0 +1,47 @@
+.manage-user-container {
+  padding: 8px 16px;
+  width: 100%;
+  .manage-user-title {
+    font-weight: 700;
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+
+  .user-table {
+    margin-top: 12px;
+    width: 100%;
+  }
+}
+
+.modal-add-user {
+  .image-preview {
+    border: 1px dashed #ccc;
+    border-radius: 8px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .upload-file {
+    display: flex;
+    align-items: center;
+    background-color: #ccc;
+    cursor: pointer;
+    gap: 8px;
+    width: fit-content;
+    border-radius: 4px;
+    padding: 4px 8px;
+
+    &:hover {
+      background-color: #ddd;
+    }
+  }
+
+  .image {
+    height: 100%;
+    width: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+}

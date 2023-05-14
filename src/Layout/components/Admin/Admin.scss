@@ -1,0 +1,36 @@
+.admin-container {
+  display: flex;
+  .admin-content {
+    width: 100%;
+    .admin-header {
+      padding: 0 36px 0 16px;
+      --header-height: 60px;
+      height: var(--header-height);
+      border-bottom: 1px solid #ccc;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .admin-header-left {
+        font-size: 18px;
+        cursor: pointer;
+      }
+      .admin-header-right {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 12px;
+      }
+    }
+
+    .admin-main {
+      height: calc(100vh - 60px);
+    }
+  }
+
+  .admin-sidebar {
+    .pro-sidebar {
+      height: 100vh !important;
+    }
+  }
+}
