@@ -158,13 +158,13 @@
     "adminSetting": "Cài đặt"
   },
   "sideBar": {
-    "sideBarTitle": "Bài test của HoiDanIt",
+    "sideBarTitle": "Bài test ",
     "sideBarDashboard": "Bảng điều khiển",
     "sideBarManageUser": "Quản lý người dùng",
     "sideBarManageQuiz": "Quản lý bài test",
     "sideBarManageQuestion": "Quản lý câu hỏi ",
     "sideBarViewSource": "Xem nguồn",
-    "sideBarFeature": "Tính năng"
+    "sideBarFeature": "Quản lý"
   },
   "login": {
     "loginTitle": "Bạn vẫn chưa có tài khoản?",

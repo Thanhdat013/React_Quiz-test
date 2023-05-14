@@ -158,13 +158,13 @@
     "adminSetting": "Setting"
   },
   "sideBar": {
-    "sideBarTitle": "Quiz test HoiDanIt",
+    "sideBarTitle": "Quiz test",
     "sideBarDashboard": "Dashboard",
     "sideBarManageUser": "Manage User",
     "sideBarManageQuiz": "Manage Quiz",
     "sideBarManageQuestion": "Manage Question ",
     "sideBarViewSource": "ViewSource",
-    "sideBarFeature": "Feature"
+    "sideBarFeature": "Manage"
   },
   "login": {
     "loginTitle": "Don't have an account yet?",

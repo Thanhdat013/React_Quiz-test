@@ -26,3 +26,32 @@
     }
   }
 }
+
+.pro-sidebar-footer {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding: 20px 4px;
+
+  .sidebar-btn_collapse {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 50%;
+    color: white;
+    background: rgba(255, 255, 255, 0.05);
+  }
+}
+
+body {
+  .pro-item-content {
+    color: #fff;
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+}
