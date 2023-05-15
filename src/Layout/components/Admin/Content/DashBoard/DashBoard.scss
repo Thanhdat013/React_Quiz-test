@@ -15,7 +15,7 @@
     --min-height: 300px;
     .dashBoard-left {
       min-height: var(--min-height);
-      width: 50%;
+
       display: flex;
       align-items: center;
       justify-content: center;
@@ -24,20 +24,19 @@
     }
     .dashBoard-total {
       height: calc(var(--min-height) / 2);
-      width: calc(50% - 10px);
       justify-content: center;
       display: flex;
       align-items: center;
       border: solid 1px #ccc;
       border-radius: 6px;
       flex-direction: column;
+      margin: 16px;
       .dashBoard-total-amount {
         font-size: 32px;
         margin-top: 8px;
       }
     }
     .dashBoard-right {
-      width: calc(50% - 20px);
       height: var(--min-height);
     }
   }

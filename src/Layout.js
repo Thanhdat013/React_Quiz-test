@@ -1,20 +1,20 @@
-import { Route, Routes } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
-import { Suspense } from "react";
-import "react-toastify/dist/ReactToastify.css";
+import { Route, Routes } from "react-router-dom"
+import { ToastContainer } from "react-toastify"
+import { Suspense } from "react"
+import "react-toastify/dist/ReactToastify.css"
 
-import App from "./App";
-import Admin from "~/Layout/components/Admin/Admin";
-import Login from "~/Layout/components/Auth/Login";
-import HomePage from "~/Layout/components/Home/HomePage";
-import ManageUser from "./Layout/components/Admin/Content/ManageUsers/ManageUser";
-import DashBoard from "./Layout/components/Admin/Content/ManageUsers/DashBoard";
-import Register from "~/Layout/components/Auth/Register";
-import ListQuiz from "~/Layout/components/Users/ListQuiz";
-import DetailQuiz from "~/Layout/components/Users/DetailQuiz";
-import ManageQuiz from "~/Layout/components/Admin/Content/ManageQuiz/ManageQuiz";
-import ManageQuestions from "~/Layout/components/Admin/Content/MangeQuestions/ManageQuestions";
-import PrivateRoutes from "~/routes/PrivateRoutes";
+import App from "./App"
+import Admin from "~/Layout/components/Admin/Admin"
+import Login from "~/Layout/components/Auth/Login"
+import HomePage from "~/Layout/components/Home/HomePage"
+import ManageUser from "~/Layout/components/Admin/Content/ManageUsers/ManageUser"
+import DashBoard from "~/Layout/components/Admin/Content/DashBoard/DashBoard"
+import Register from "~/Layout/components/Auth/Register"
+import ListQuiz from "~/Layout/components/Users/ListQuiz"
+import DetailQuiz from "~/Layout/components/Users/DetailQuiz"
+import ManageQuiz from "~/Layout/components/Admin/Content/ManageQuiz/ManageQuiz"
+import ManageQuestions from "~/Layout/components/Admin/Content/MangeQuestions/ManageQuestions"
+import PrivateRoutes from "~/routes/PrivateRoutes"
 
 const Layout = () => {
   const NotFound = () => {
@@ -22,8 +22,8 @@ const Layout = () => {
       <div className=" mt-3 alert alert-danger">
         404. Not found data with your URL{" "}
       </div>
-    );
-  };
+    )
+  }
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
@@ -72,7 +72,7 @@ const Layout = () => {
         theme="light"
       />
     </Suspense>
-  );
-};
+  )
+}
 
-export default Layout;
+export default Layout
