@@ -1,62 +1,78 @@
-import { useEffect, useState } from "react";
-import { Button } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
-import { useTranslation, Trans } from "react-i18next";
+import { useEffect, useState } from "react"
+import { Button, Col, Container, Row } from "react-bootstrap"
+import { useNavigate } from "react-router-dom"
+import { useTranslation, Trans } from "react-i18next"
 
-import "./ListQuiz.scss";
+import "./ListQuiz.scss"
 
-import { getQuizByUser } from "~/services/ApiServices";
+import { getQuizByUser } from "~/services/ApiServices"
 
 const ListQuiz = () => {
-  const navigate = useNavigate();
-  const [arrQuiz, setArrQuiz] = useState([]);
-  const { t } = useTranslation();
+  const navigate = useNavigate()
+  const [arrQuiz, setArrQuiz] = useState([])
+  const { t } = useTranslation()
 
   useEffect(() => {
-    getQuizData();
-  }, []);
+    getQuizData()
+  }, [])
 
   const getQuizData = async () => {
-    const res = await getQuizByUser();
+    const res = await getQuizByUser()
     if (res && res.EC === 0) {
-      setArrQuiz(res.DT);
+      setArrQuiz(res.DT)
     }
-  };
+  }
   return (
-    <div className="list-quiz-container container">
-      {arrQuiz &&
-        arrQuiz.length > 0 &&
-        arrQuiz.map((item, index) => {
-          return (
-            <div key={item.id} className="card" style={{ width: "18rem" }}>
-              <img
-                className="card-img-top "
-                src={`data:image/jpeg;base64, ${item.image}`}
-                alt="Card image cap"
-              />
-              <div className="card-body">
-                <h5 className="card-title">
-                  {t("quiz.quizTitle1")}
-                  {index + 1}
-                </h5>
-                <p className="card-text">{item.description}</p>
-                <Button
-                  className="btn btn-primary "
-                  onClick={() =>
-                    navigate(`/quiz/${item.id}`, {
-                      state: { quizTitle: item.description },
-                    })
-                  }
+    <Container className="list-quiz-container  ">
+      <Row>
+        {arrQuiz &&
+          arrQuiz.length > 0 &&
+          arrQuiz.map((item, index) => {
+            return (
+              <Col
+                lg="3"
+                md="4"
+                sm="11"
+                key={item.id}
+                className="list-quiz_card"
+              >
+                <div
+                  style={{
+                    border: "1px solid #ccc",
+                    borderRadius: " 4px",
+                    marginBottom: "16px",
+                  }}
                 >
-                  {t("quiz.quizButton")}
-                </Button>
-              </div>
-            </div>
-          );
-        })}
+                  <img
+                    className="card-img-top "
+                    src={`data:image/jpeg;base64, ${item.image}`}
+                    alt="Card image cap"
+                  />
+                  <div className="card-body">
+                    <h5 className="card-title">
+                      {t("quiz.quizTitle1")}
+                      {index + 1}
+                    </h5>
+                    <p className="card-text">{item.description}</p>
+                    <Button
+                      className="btn btn-primary card_btn "
+                      onClick={() =>
+                        navigate(`/quiz/${item.id}`, {
+                          state: { quizTitle: item.description },
+                        })
+                      }
+                    >
+                      {t("quiz.quizButton")}
+                    </Button>
+                  </div>
+                </div>
+              </Col>
+            )
+          })}
+      </Row>
       {arrQuiz && arrQuiz.length === 0 && <div>{t("quiz.quizNotice")}</div>}
-    </div>
-  );
-};
+    </Container>
+  )
+}
 
-export default ListQuiz;
+export default ListQuiz

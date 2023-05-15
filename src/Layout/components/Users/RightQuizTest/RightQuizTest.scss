@@ -40,3 +40,13 @@
     }
   }
 }
+@media (max-width: 1023px) {
+  .quiz-timer {
+    min-height: 56px;
+    padding: 4px 0;
+  }
+
+  .quiz-container-wrap {
+    margin: 12px 6px;
+  }
+}

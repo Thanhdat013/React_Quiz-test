@@ -2,17 +2,25 @@
   display: flex;
   gap: 40px;
   flex-wrap: wrap;
+  .list-quiz_card {
+    .card-img-top {
+      width: 100%;
+      height: 286px;
+      object-fit: cover;
+    }
 
-  .card-img-top {
-    width: 286px;
-    height: 286px;
-    object-fit: cover;
+    .card-body {
+      border-top: 1px solid #ddd;
+      padding: 8px 12px;
+    }
+    .card-text {
+      height: 48px;
+    }
+    .card_btn {
+      margin-bottom: 4px;
+    }
   }
+}
 
-  .card-body {
-    border-top: 1px solid #ddd;
-  }
-  .card-text {
-    height: 48px;
-  }
+@media (max-width: 739px) {
 }
