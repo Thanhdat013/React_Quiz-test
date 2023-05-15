@@ -10,7 +10,6 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-
       .admin-header-left {
         font-size: 18px;
         cursor: pointer;
@@ -31,6 +30,15 @@
   .admin-sidebar {
     .pro-sidebar {
       height: 100vh !important;
+    }
+  }
+}
+@media (max-width: 1023px) {
+  body {
+    .dropdown-menu {
+      &.show {
+        transform: translate3d(-75px, 32px, 0px) !important;
+      }
     }
   }
 }

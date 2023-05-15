@@ -13,6 +13,10 @@
       color: #00bfff !important;
     }
   }
+  .header-btn {
+    margin-right: 16px;
+    min-width: 90px;
+  }
 }
 
 .languages {
@@ -52,6 +56,10 @@
           border-radius: 12px;
           border: 1px solid #ddd;
           padding: 0 14px;
+        }
+        .header-btn {
+          margin-bottom: 8px;
+          margin-right: 0;
         }
       }
     }

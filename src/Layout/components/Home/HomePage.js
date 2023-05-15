@@ -3,14 +3,12 @@ import { useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import { useTranslation } from "react-i18next"
 import homePageImage from "~/assets/home_page.jpg"
-import { Col, Container, Row, Stack } from "react-bootstrap"
+import { Button, Col, Container, Row, Stack } from "react-bootstrap"
 import { BiUserCircle } from "react-icons/bi"
 import { MdOutlineQuiz } from "react-icons/md"
 import { AiOutlineQuestionCircle } from "react-icons/ai"
 
 import styles from "./HomePage.scss"
-
-import Button from "~/components/Button/Button"
 
 const cx = classNames.bind(styles)
 
@@ -21,10 +19,8 @@ function HomePage() {
   const { t } = useTranslation()
 
   return (
-    <Container
-      style={{ lg: { paddingTop: "100px" }, md: { paddingTop: "20px" } }}
-    >
-      <Row>
+    <Container>
+      <Row className="homepage">
         <Col xs="12" md="12" lg="6" className="homepage-wrap">
           <img
             src={homePageImage}
@@ -81,7 +77,7 @@ function HomePage() {
               {isAuthenticated === false ? (
                 <Button
                   large
-                  primary
+                  variant="warning"
                   className={cx("homepage-content-btn")}
                   onClick={() => navigate("/login")}
                 >
@@ -90,7 +86,7 @@ function HomePage() {
               ) : (
                 <Button
                   large
-                  primary
+                  variant="warning"
                   className={cx("homepage-content-btn")}
                   onClick={() => navigate("/users")}
                 >

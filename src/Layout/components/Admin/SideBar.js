@@ -1,24 +1,21 @@
-import {
-  ProSidebar,
-  Menu,
-  MenuItem,
-  SubMenu,
-  SidebarHeader,
-  SidebarFooter,
-  SidebarContent,
-} from "react-pro-sidebar"
 import { useTranslation } from "react-i18next"
 import { FaChalkboard, FaGithub } from "react-icons/fa"
-import { MdOutlineQuiz, MdDashboard } from "react-icons/md"
-import { AiOutlineUser } from "react-icons/ai"
+import { MdDashboard, MdOutlineQuiz } from "react-icons/md"
+import {
+  Menu,
+  MenuItem,
+  ProSidebar,
+  SidebarContent,
+  SidebarFooter,
+  SidebarHeader,
+  SubMenu,
+} from "react-pro-sidebar"
 
-import { Link } from "react-router-dom"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 import "react-pro-sidebar/dist/css/styles.css"
 import "./SideBar.scss"
 
-import sidebarBg from "~/assets/bg-quiz.png"
 import sidebarBg2 from "~/assets/bg_sidebar2.jpg"
 
 const SideBar = ({ image, collapsed, toggled, handleToggleSidebar }) => {
@@ -30,9 +27,9 @@ const SideBar = ({ image, collapsed, toggled, handleToggleSidebar }) => {
       <ProSidebar
         image={sidebarBg2}
         collapsed={collapsed}
-        toggled={toggled}
+        // toggled
         breakPoint="sm"
-        onToggle={handleToggleSidebar}
+        // onToggle
       >
         <SidebarHeader>
           {collapsed ? (

@@ -11,11 +11,11 @@ import NavDropdown from "react-bootstrap/NavDropdown"
 import styles from "./Header.scss"
 
 import { useState } from "react"
-import Button from "~/components/Button/Button"
 import UserSetting from "~/Layout/components/Users/UserSetting/UserSetting"
 import { doLogout } from "~/redux/action/userAction"
 import { postLogout } from "~/services/ApiServices"
 import Language from "./Language"
+import { Button } from "react-bootstrap"
 
 const cx = classNames.bind(styles)
 
@@ -90,10 +90,18 @@ const Header = () => {
                 </>
               ) : (
                 <>
-                  <Button outline onClick={() => handleLogin()}>
+                  <Button
+                    className="header-btn"
+                    variant="dark"
+                    onClick={() => handleLogin()}
+                  >
                     {t("header.headerLogin")}
                   </Button>
-                  <Button primary onClick={() => handleSignup()}>
+                  <Button
+                    variant="warning"
+                    style={{ minWidth: "90px" }}
+                    onClick={() => handleSignup()}
+                  >
                     {t("header.headerSignup")}
                   </Button>
                 </>
