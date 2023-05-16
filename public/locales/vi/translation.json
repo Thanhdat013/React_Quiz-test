@@ -1,12 +1,12 @@
 {
   "homePage": {
     "homePageTitle1": "Có rất nhiều cách để hỏi.....",
-    "homePageTitle2": "Bạn không muốn làm một hình thức nhàm chán. Và khán giả của bạn sẽ không trả lời một. Thay vào đó, hãy tạo một kiểu chữ—và làm cho mọi người hài lòng.",
+    "homePageTitle2": "Bạn không muốn làm một định dạng nhàm chán. Và bạn đọc của bạn sẽ không trả lời một. Thay vào đó, hãy tạo một typeform và làm cho mọi người hài lòng.",
     "homePageLogin": "Bắt đầu - hoàn toàn miễn phí",
     "homePageLogout": " Làm bài kiểm tra ngay bây giờ !"
   },
   "header": {
-    "headerBrand": "React-Bootstrap",
+    "headerBrand": "Typeform",
     "headerHome": "Trang chủ",
     "headerUsers": "Người dùng",
     "headerAdmin": "Quản trị viên",
@@ -168,23 +168,25 @@
   },
   "login": {
     "loginTitle": "Bạn vẫn chưa có tài khoản?",
-    "loginName": "Hoi dan IT",
+    "loginName": "Typeform",
     "loginWelcome": "Xin chào, bạn là ai",
     "loginEmail": "Thư điện tử",
     "loginPassword": "Mật khẩu",
     "loginForgotPassword": "Quên mật khẩu ?",
-    "loginSubmit": "Đăng nhập vào HoiDanIt",
-    "loginBackHome": "Về trang chủ"
+    "loginSubmit": "Đăng nhập vào Typeform",
+    "loginBackHome": "Về trang chủ",
+    "loginBtn": "Đăng ký"
   },
   "register": {
     "registerHeader": "Bạn có sẵn sàng để tạo một tài khoản",
-    "registerTitle": "Hoi dan IT",
+    "registerTitle": "Typeform",
     "registerWelcome": "Bắt đầu hành trình của bạn",
     "registerEmail": "Thư điện tử (*)",
     "registerPassword": "Mật khẩu (*) ",
     "registerUsername": "Tên tài khoản (*)",
     "registerSubmit": "Tạo một tài khoản miễn phí",
-    "registerBackHome": "Về trang chủ"
+    "registerBackHome": "Về trang chủ",
+    "registerBtn": "Đăng nhập"
   },
   "dashBoard": {
     "dashBoardTitle": "Bảng phân tích số liệu",

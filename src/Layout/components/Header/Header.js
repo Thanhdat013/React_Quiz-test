@@ -36,14 +36,14 @@ const Header = () => {
   // Redux
   const isAuthenticated = useSelector((state) => state.user.isAuthenticated)
   const account = useSelector((state) => state.user.account)
+  const role = useSelector((state) => state.user.account.role)
   const dispatch = useDispatch()
   const handleLogout = async () => {
     let res = await postLogout(account.email, account.refresh_token)
 
     if (res && res.EC === 0) {
-      // clear data Redux
       dispatch(doLogout())
-      navigate("/login")
+      navigate("/")
     }
   }
   //User setting
@@ -69,9 +69,11 @@ const Header = () => {
               <NavLink to="/users" className={cx("nav-link")}>
                 {t("header.headerUsers")}
               </NavLink>
-              <NavLink to="/admin" className={cx("nav-link")}>
-                {t("header.headerAdmin")}
-              </NavLink>
+              {role === "ADMIN" && (
+                <NavLink to="/admin" className={cx("nav-link")}>
+                  {t("header.headerAdmin")}
+                </NavLink>
+              )}
             </Nav>
             <Nav>
               {isAuthenticated ? (

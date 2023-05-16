@@ -6,7 +6,7 @@
     "homePageLogout": " Doing Quiz Now !"
   },
   "header": {
-    "headerBrand": "React-Bootstrap",
+    "headerBrand": "Typeform",
     "headerHome": "Home",
     "headerUsers": "Users",
     "headerAdmin": "Admin",
@@ -168,23 +168,25 @@
   },
   "login": {
     "loginTitle": "Don't have an account yet?",
-    "loginName": "Hoi dan IT",
+    "loginName": "Typeform",
     "loginWelcome": "Hello, Who's this ?",
     "loginEmail": "Email",
     "loginPassword": "Password ",
     "loginForgotPassword": "Forgot password?",
-    "loginSubmit": "Login to HoiDanIt",
-    "loginBackHome": "Go to homepage"
+    "loginSubmit": "Login to Typeform",
+    "loginBackHome": "Go to homepage",
+    "loginBtn": "Sign up"
   },
   "register": {
     "registerHeader": "Already have an account",
-    "registerTitle": "Hoi dan IT",
+    "registerTitle": "Typeform",
     "registerWelcome": "Start your journey",
     "registerEmail": "Email (*)",
     "registerPassword": "Password (*) ",
     "registerUsername": "Username (*)",
     "registerSubmit": "Create a free account",
-    "registerBackHome": "Go to homepage"
+    "registerBackHome": "Go to homepage",
+    "registerBtn": "Sign in"
   },
   "dashBoard": {
     "dashBoardTitle": "Analytics dashBoard",

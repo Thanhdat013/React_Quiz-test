@@ -1,70 +1,70 @@
-import { useState } from "react";
-import { useTranslation } from "react-i18next";
-import { AiTwotoneEyeInvisible, AiTwotoneEye } from "react-icons/ai";
-import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
+import { useState } from "react"
+import { useTranslation } from "react-i18next"
+import { AiTwotoneEyeInvisible, AiTwotoneEye } from "react-icons/ai"
+import { useNavigate } from "react-router-dom"
+import { toast } from "react-toastify"
 
-import "./Auth.scss";
-import Button from "~/components/Button/Button";
-import { postSignup } from "~/services/ApiServices";
-import Language from "~/Layout/components/Header/Language";
+import "./Auth.scss"
+import Button from "~/components/Button/Button"
+import { postSignup } from "~/services/ApiServices"
+import Language from "~/Layout/components/Header/Language"
 
 function Register() {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const handleNavigateLogin = () => {
-    navigate("/login");
-  };
+    navigate("/login")
+  }
 
   const handleBackHome = () => {
-    navigate("/");
-  };
+    navigate("/")
+  }
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [username, setUserNames] = useState("");
-  const [isShowPassword, setIsShowPassword] = useState(false);
-  const [isShowIconPassword, setIsShowIconPassword] = useState(false);
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [username, setUserNames] = useState("")
+  const [isShowPassword, setIsShowPassword] = useState(false)
+  const [isShowIconPassword, setIsShowIconPassword] = useState(false)
 
   const handleShowHidePassword = () => {
-    setIsShowPassword(!isShowPassword);
-    setIsShowIconPassword(!isShowIconPassword);
-  };
+    setIsShowPassword(!isShowPassword)
+    setIsShowIconPassword(!isShowIconPassword)
+  }
 
   const validateEmail = (email) => {
     return String(email)
       .toLowerCase()
       .match(
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-      );
-  };
+      )
+  }
   const handleSignup = async () => {
     //validate
-    const isValidEmail = validateEmail(email);
+    const isValidEmail = validateEmail(email)
     if (!isValidEmail) {
-      toast.error("Invalid email");
-      return;
+      toast.error("Invalid email")
+      return
     }
     if (!password) {
-      toast.error("Invalid password");
-      return;
+      toast.error("Invalid password")
+      return
     }
     // submit Api
-    let data = await postSignup(email, password, username);
-    console.log(data);
+    let data = await postSignup(email, password, username)
+    console.log(data)
     if (data && data.EC === 0) {
-      toast.success(data.EM);
-      navigate("/login");
+      toast.success(data.EM)
+      navigate("/login")
     }
 
     if (data && +data.EC !== 0) {
-      toast.error(data.EM);
+      toast.error(data.EM)
     }
-  };
+  }
   const handleKeyDown = (e) => {
-    if (e.keyCode === 13) handleSignup();
-  };
-  const { t } = useTranslation();
+    if (e.keyCode === 13) handleSignup()
+  }
+  const { t } = useTranslation()
 
   return (
     <div className="register-container">
@@ -74,8 +74,9 @@ function Register() {
           outline
           className="sign-btn"
           onClick={() => handleNavigateLogin()}
+          onKeyDown={(e) => handleKeyDown(e)}
         >
-          Log in
+          {t("register.registerBtn")}
         </Button>
         <Language />
       </div>
@@ -93,6 +94,7 @@ function Register() {
             className="form-control"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            onKeyDown={(e) => handleKeyDown(e)}
           />
         </div>
         <div className="form-group ">
@@ -146,7 +148,7 @@ function Register() {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default Register;
+export default Register

@@ -1,19 +1,18 @@
 import axios from "axios"
 import { store } from "~/redux/store"
 
-const baseURL = process.env.BACKEND_URL
-
 const NO_RETRY_HEADER = "x-no-retry"
 
 const getAxios = axios.create({
-  baseURL: baseURL,
+  baseURL: process.env.REACT_APP_BACKEND_URL,
   withCredentials: true,
 })
 
 // call api to refresh token
 const handleRefreshToken = async () => {
   try {
-    const res = await getAxios.get("/api/v1/refresh-token")
+    const refresh_token = localStorage.getItem("refresh_token")
+    const res = await getAxios.post("/api/v1/refresh-token", refresh_token)
     if (res && res.DT) return res.DT.access_token
   } catch (e) {
     console.log("Error", e)

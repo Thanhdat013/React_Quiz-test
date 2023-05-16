@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react"
 import { Button, Col, Container, Row } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
-import { useTranslation, Trans } from "react-i18next"
+import { useTranslation } from "react-i18next"
 
 import "./ListQuiz.scss"
 
-import { getQuizByUser } from "~/services/ApiServices"
+import { getQuizByUser, getAllQuiz } from "~/services/ApiServices"
 
 const ListQuiz = () => {
   const navigate = useNavigate()
@@ -17,14 +17,15 @@ const ListQuiz = () => {
   }, [])
 
   const getQuizData = async () => {
-    const res = await getQuizByUser()
+    // const res = await getQuizByUser()
+    const res = await getAllQuiz()
     if (res && res.EC === 0) {
       setArrQuiz(res.DT)
     }
   }
   return (
     <Container className="list-quiz-container  ">
-      <Row>
+      <Row style={{ width: "100%" }}>
         {arrQuiz &&
           arrQuiz.length > 0 &&
           arrQuiz.map((item, index) => {

@@ -33,9 +33,9 @@ const Layout = () => {
           <Route
             path="users"
             element={
-              <PrivateRoutes>
+              <>
                 <ListQuiz />
-              </PrivateRoutes>
+              </>
             }
           />
         </Route>
