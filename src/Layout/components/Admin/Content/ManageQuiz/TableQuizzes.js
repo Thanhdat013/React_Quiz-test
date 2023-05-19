@@ -1,11 +1,11 @@
-import { useTranslation, Trans } from "react-i18next";
+import { useTranslation, Trans } from "react-i18next"
 
 const TableQuizzes = ({
   listQuiz,
   handleClickDeleteQuiz,
   handleClickUpdateQuiz,
 }) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
 
   return (
     <>
@@ -27,7 +27,7 @@ const TableQuizzes = ({
                 <tr key={item.id}>
                   <td>{item.id}</td>
                   <td>{item.name}</td>
-                  <td>{item.description}</td>
+                  <td style={{ width: "50%" }}>{item.description}</td>
                   <td>{item.difficulty}</td>
                   <td>
                     <button
@@ -44,7 +44,7 @@ const TableQuizzes = ({
                     </button>
                   </td>
                 </tr>
-              );
+              )
             })}
 
           {listQuiz && listQuiz.length === 0 && (
@@ -55,7 +55,7 @@ const TableQuizzes = ({
         </tbody>
       </table>
     </>
-  );
-};
+  )
+}
 
-export default TableQuizzes;
+export default TableQuizzes

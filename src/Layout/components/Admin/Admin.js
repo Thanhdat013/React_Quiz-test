@@ -28,7 +28,9 @@ const Admin = () => {
     if (res && res.EC === 0) {
       // clear data Redux
       dispatch(doLogout())
-      navigate("/login")
+      localStorage.removeItem("access_token")
+      localStorage.removeItem("refresh_token")
+      navigate("/")
     }
   }
   const { t } = useTranslation()

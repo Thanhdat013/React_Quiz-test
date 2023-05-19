@@ -14,7 +14,12 @@
       padding: 8px 12px;
     }
     .card-text {
-      height: 48px;
+      margin-top: 8px;
+      height: 78px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
     .card_btn {
       margin-bottom: 4px;

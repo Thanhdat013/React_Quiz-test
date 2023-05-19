@@ -43,6 +43,8 @@ const Header = () => {
 
     if (res && res.EC === 0) {
       dispatch(doLogout())
+      localStorage.removeItem("access_token")
+      localStorage.removeItem("refresh_token")
       navigate("/")
     }
   }

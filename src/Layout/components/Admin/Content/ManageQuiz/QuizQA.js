@@ -1,19 +1,15 @@
-import { useState, useEffect } from "react";
-import Select from "react-select";
-import React from "react";
-import { v4 as uuidv4 } from "uuid";
-import _ from "lodash";
-import { useTranslation } from "react-i18next";
+import { useState, useEffect } from "react"
+import Select from "react-select"
+import React from "react"
+import { v4 as uuidv4 } from "uuid"
+import _ from "lodash"
+import { useTranslation } from "react-i18next"
 
-import { FcPlus, FcMinus } from "react-icons/fc";
-import { Button } from "react-bootstrap";
-import { toast } from "react-toastify";
+import { FcPlus, FcMinus } from "react-icons/fc"
+import { Button } from "react-bootstrap"
+import { toast } from "react-toastify"
 
-import {
-  getAllQuiz,
-  getQuizWithQA,
-  postUpsertQA,
-} from "~/services/ApiServices";
+import { getAllQuiz, getQuizWithQA, postUpsertQA } from "~/services/ApiServices"
 
 const initQuestion = [
   {
@@ -29,11 +25,11 @@ const initQuestion = [
       },
     ],
   },
-];
+]
 const QuizQA = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
 
-  const [questions, setQuestions] = useState(initQuestion);
+  const [questions, setQuestions] = useState(initQuestion)
 
   // add and remove questions
   const handleAddRemoveQuestion = (type, id) => {
@@ -50,211 +46,211 @@ const QuizQA = () => {
             isCorrect: false,
           },
         ],
-      };
-      setQuestions([...questions, newQuestion]);
+      }
+      setQuestions([...questions, newQuestion])
     }
     if (type === "REMOVE") {
-      let questionClone = _.cloneDeep(questions);
+      let questionClone = _.cloneDeep(questions)
       let removeQuestion = questionClone.filter(
         (question) => question.id !== id
-      );
+      )
 
-      setQuestions(removeQuestion);
+      setQuestions(removeQuestion)
     }
-  };
+  }
 
   // add and remove answers
   const handleAddRemoveAnswer = (type, questionId, answerId) => {
-    let questionClone = _.cloneDeep(questions);
-    let index = questionClone.findIndex((item) => item.id === questionId);
+    let questionClone = _.cloneDeep(questions)
+    let index = questionClone.findIndex((item) => item.id === questionId)
     if (type === "ADD" && index > -1) {
       const newAnswer = {
         id: uuidv4(),
         description: "",
         isCorrect: false,
-      };
+      }
 
-      questionClone[index].answers.push(newAnswer);
-      setQuestions(questionClone);
+      questionClone[index].answers.push(newAnswer)
+      setQuestions(questionClone)
     }
     if (type === "REMOVE" && index > -1) {
       questionClone[index].answers = questionClone[index].answers.filter(
         (answer) => answer.id !== answerId
-      );
+      )
 
-      setQuestions(questionClone);
+      setQuestions(questionClone)
     }
-  };
+  }
 
   // change value of question and answers
   const handleChangeQuestionAnswer = (type, e, questionId, answerId) => {
-    let questionClone = _.cloneDeep(questions);
-    let index = questionClone.findIndex((item) => item.id === questionId);
+    let questionClone = _.cloneDeep(questions)
+    let index = questionClone.findIndex((item) => item.id === questionId)
     if (type === "QUESTION") {
-      questionClone[index].description = e.target.value;
-      setQuestions(questionClone);
+      questionClone[index].description = e.target.value
+      setQuestions(questionClone)
     }
     let indexAnswer = questionClone[index].answers.findIndex(
       (answer) => answer.id === answerId
-    );
+    )
     if (type === "ANSWER") {
-      questionClone[index].answers[indexAnswer].description = e.target.value;
-      setQuestions(questionClone);
+      questionClone[index].answers[indexAnswer].description = e.target.value
+      setQuestions(questionClone)
     }
     if (type === "CHECKBOX") {
       questionClone[index].answers[indexAnswer].isCorrect =
-        !questionClone[index].answers[indexAnswer].isCorrect;
-      setQuestions(questionClone);
+        !questionClone[index].answers[indexAnswer].isCorrect
+      setQuestions(questionClone)
     }
-  };
+  }
 
   // add + remove image for questions
   const handleAddImage = (e, questionId) => {
-    let questionClone = _.cloneDeep(questions);
-    let index = questionClone.findIndex((item) => item.id === questionId);
+    let questionClone = _.cloneDeep(questions)
+    let index = questionClone.findIndex((item) => item.id === questionId)
     if (e.target.files[0] !== undefined) {
-      questionClone[index].imageFile = e.target.files[0];
-      setQuestions(questionClone);
+      questionClone[index].imageFile = e.target.files[0]
+      setQuestions(questionClone)
     }
-  };
+  }
   const handleRemoveImage = (questionId) => {
-    let questionClone = _.cloneDeep(questions);
-    let index = questionClone.findIndex((item) => item.id === questionId);
+    let questionClone = _.cloneDeep(questions)
+    let index = questionClone.findIndex((item) => item.id === questionId)
 
-    questionClone[index].imageFile = "";
-    setQuestions(questionClone);
-  };
+    questionClone[index].imageFile = ""
+    setQuestions(questionClone)
+  }
 
-  const [listQuiz, setListQuiz] = useState([]);
-  const [selectedQuiz, setSelectedQuiz] = useState({});
+  const [listQuiz, setListQuiz] = useState([])
+  const [selectedQuiz, setSelectedQuiz] = useState({})
 
-  const [isValidQuestion, setIsValidQuestion] = useState(false);
-  const [isValidAnswer, setIsValidAnswer] = useState(false);
+  const [isValidQuestion, setIsValidQuestion] = useState(false)
+  const [isValidAnswer, setIsValidAnswer] = useState(false)
 
   useEffect(() => {
-    fetchListQuiz();
-  }, []);
+    fetchListQuiz()
+  }, [listQuiz])
 
   const fetchListQuiz = async () => {
-    let res = await getAllQuiz();
+    let res = await getAllQuiz()
     if (res.EC === 0) {
       let quiz = res.DT.map((item) => {
         return {
           value: item.id,
           label: `${item.id} - ${item.name}`,
-        };
-      });
-      setListQuiz(quiz);
+        }
+      })
+      setListQuiz(quiz)
     }
-  };
+  }
 
   useEffect(() => {
-    if (selectedQuiz && selectedQuiz.value) fetchListQuizWithQA();
-  }, [selectedQuiz]);
+    if (selectedQuiz && selectedQuiz.value) fetchListQuizWithQA()
+  }, [selectedQuiz])
 
   function urltoFile(url, filename, mimeType) {
     return fetch(url)
       .then(function (res) {
-        return res.arrayBuffer();
+        return res.arrayBuffer()
       })
       .then(function (buf) {
-        return new File([buf], filename, { type: mimeType });
-      });
+        return new File([buf], filename, { type: mimeType })
+      })
   }
 
   const fetchListQuizWithQA = async () => {
-    let res = await getQuizWithQA(selectedQuiz.value);
+    let res = await getQuizWithQA(selectedQuiz.value)
     if (res && res.EC === 0) {
-      console.log(res);
+      console.log(res)
       // convert base64 to File object for image
-      let newQA = [];
+      let newQA = []
       for (let i = 0; i < res.DT.qa.length; i++) {
-        let question = res.DT.qa[i];
+        let question = res.DT.qa[i]
         if (question.imageFile) {
           question.imageFile = await urltoFile(
             `data:image/png;base64,${question.imageFile}`,
             `Question-${question.id}.png`,
             "image/png"
-          );
+          )
         }
-        newQA.push(question);
+        newQA.push(question)
       }
 
-      setQuestions(newQA);
+      setQuestions(newQA)
     }
-  };
+  }
 
   const handleSubmitQuestion = async () => {
     // invalidate for add  quiz
     if (_.isEmpty(selectedQuiz)) {
-      toast.error("Invalid quiz");
-      return;
+      toast.error("Invalid quiz")
+      return
     }
 
     // invalidate for add question
-    let isValidQ = true;
-    let indexQ = 0;
+    let isValidQ = true
+    let indexQ = 0
     for (let i = 0; i < questions.length; i++) {
       if (!questions[i].description) {
-        isValidQ = false;
-        indexQ = i;
-        break;
+        isValidQ = false
+        indexQ = i
+        break
       }
     }
 
     if (isValidQ === false) {
-      setIsValidQuestion(true);
-      return;
+      setIsValidQuestion(true)
+      return
     }
 
     // invalidate for add  answer
-    let isValidA = true;
+    let isValidA = true
     let indexQuestion = 0,
-      indexAnswer = 0;
+      indexAnswer = 0
     for (let i = 0; i < questions.length; i++) {
       for (let j = 0; j < questions[i].answers.length; j++) {
         if (!questions[i].answers[j].description) {
-          isValidA = false;
-          indexAnswer = j;
-          break;
+          isValidA = false
+          indexAnswer = j
+          break
         }
       }
-      indexQuestion = i;
-      if (isValidA === false) break;
+      indexQuestion = i
+      if (isValidA === false) break
     }
 
     if (isValidA === false) {
-      setIsValidAnswer(true);
-      return;
+      setIsValidAnswer(true)
+      return
     }
 
-    let questionClone = _.cloneDeep(questions);
+    let questionClone = _.cloneDeep(questions)
     for (let i = 0; i < questionClone.length; i++) {
       if (questionClone[i].imageFile) {
         // convert file object to base 64
-        questionClone[i].imageFile = await toBase64(questionClone[i].imageFile);
+        questionClone[i].imageFile = await toBase64(questionClone[i].imageFile)
       }
     }
 
     let res = await postUpsertQA({
       quizId: selectedQuiz.value,
       questions: questionClone,
-    });
+    })
     if (res && res.EC === 0) {
-      toast.success(res.EM);
-      fetchListQuizWithQA();
+      toast.success(res.EM)
+      fetchListQuizWithQA()
     }
 
-    setQuestions(initQuestion);
-    setSelectedQuiz({});
-  };
+    setQuestions(initQuestion)
+    setSelectedQuiz({})
+  }
   const toBase64 = (file) =>
     new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = () => resolve(reader.result);
-      reader.onerror = (error) => reject(error);
-    });
+      const reader = new FileReader()
+      reader.readAsDataURL(file)
+      reader.onload = () => resolve(reader.result)
+      reader.onerror = (error) => reject(error)
+    })
 
   return (
     <div className="question-container">
@@ -374,7 +370,7 @@ const QuizQA = () => {
                             )}
                           </div>
                         </div>
-                      );
+                      )
                     })}
                 </form>
               </div>
@@ -417,7 +413,7 @@ const QuizQA = () => {
                 </form>
               </div>
             </div>
-          );
+          )
         })}
       {questions && questions.length > 0 && (
         <Button
@@ -428,7 +424,7 @@ const QuizQA = () => {
         </Button>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default QuizQA;
+export default QuizQA

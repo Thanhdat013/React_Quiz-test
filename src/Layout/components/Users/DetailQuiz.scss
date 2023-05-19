@@ -41,9 +41,11 @@
 
     .image {
       margin-top: 20px;
+      height: 300px;
+
       .question-image {
         width: 400px;
-        height: 300px;
+        height: auto;
         object-fit: cover;
         display: flex;
         margin: auto;

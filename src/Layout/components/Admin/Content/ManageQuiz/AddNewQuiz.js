@@ -1,67 +1,67 @@
-import { useState } from "react";
-import Select from "react-select";
-import { useTranslation } from "react-i18next";
+import { useState } from "react"
+import Select from "react-select"
+import { useTranslation } from "react-i18next"
 
-import { createNewQuiz } from "~/services/ApiServices";
+import { createNewQuiz } from "~/services/ApiServices"
 
-import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
-import { toast } from "react-toastify";
+import Button from "react-bootstrap/Button"
+import Modal from "react-bootstrap/Modal"
+import { toast } from "react-toastify"
 
-import { FcPlus } from "react-icons/fc";
+import { FcPlus } from "react-icons/fc"
 
-import "./ManageQuiz.scss";
+import "./ManageQuiz.scss"
 
 const AddNewQuiz = ({ show, setShow, fetchListQuiz }) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
 
-  const [name, setName] = useState("");
-  const [desc, setDesc] = useState("");
-  const [quizType, setQuizType] = useState("");
-  const [image, setImage] = useState(null);
-  const [previewAvatar, setPreviewAvatar] = useState("");
+  const [name, setName] = useState("")
+  const [desc, setDesc] = useState("")
+  const [quizType, setQuizType] = useState("")
+  const [image, setImage] = useState(null)
+  const [previewAvatar, setPreviewAvatar] = useState("")
 
   const handleSubmitCreateQuiz = async () => {
     if (!quizType?.value) {
-      toast.error("Invalid difficult");
-      return;
+      toast.error("Invalid difficult")
+      return
     }
-    let data = await createNewQuiz(desc, name, quizType?.value, image);
+    let data = await createNewQuiz(desc, name, quizType?.value, image)
     if (data && data.EC === 0) {
-      toast.success(data.EM);
-      handleClose();
-      fetchListQuiz(); // render lại giao diện
+      toast.success(data.EM)
+      handleClose()
+      fetchListQuiz() // render lại giao diện
     }
 
     if (data && data.EC !== 0) {
-      toast.error(data.EM);
+      toast.error(data.EM)
     }
-  };
+  }
 
   const handleClose = () => {
-    setShow(false);
-    setName("");
-    setDesc("");
-    setQuizType("");
-    setImage("");
-    setPreviewAvatar("");
-  };
+    setShow(false)
+    setName("")
+    setDesc("")
+    setQuizType("")
+    setImage("")
+    setPreviewAvatar("")
+  }
 
   const handelPreviewAvatar = (e) => {
     if (e.target.files[0] !== undefined) {
       // check xem có file không
-      setPreviewAvatar(URL.createObjectURL(e.target.files[0])); // tạo ra đường dẫn tạm
-      setImage(e.target.files[0]);
-      e.target.value = null;
+      setPreviewAvatar(URL.createObjectURL(e.target.files[0])) // tạo ra đường dẫn tạm
+      setImage(e.target.files[0])
+      e.target.value = null
       // e.target.value = null; // set cho value bằng null sau khi cọn ảnh, sửa bug onChange khi chọn liên tiếp 2 lần vào 1 ảnh thì giá trị không đổi
     }
-  };
+  }
 
   const options = [
     { value: "EASY", label: "EASY" },
     { value: "MEDIUM", label: "MEDIUM" },
     { value: "HARD", label: "HARD" },
-  ];
+  ]
 
   return (
     <Modal
@@ -123,7 +123,10 @@ const AddNewQuiz = ({ show, setShow, fetchListQuiz }) => {
           </div>
           <div className="col-md-12 quiz-image-preview">
             {previewAvatar ? (
-              <img src={previewAvatar} className="quiz-image" />
+              <img
+                src={previewAvatar}
+                style={{ width: "480px", height: "100%", objectFit: "cover" }}
+              />
             ) : (
               <span>{t("quiz.quizPreviewImage")}</span>
             )}
@@ -139,7 +142,7 @@ const AddNewQuiz = ({ show, setShow, fetchListQuiz }) => {
         </Button>
       </Modal.Footer>
     </Modal>
-  );
-};
+  )
+}
 
-export default AddNewQuiz;
+export default AddNewQuiz

@@ -28,6 +28,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    .quiz-image {
+      height: 100%;
+      width: 480px;
+      object-fit: cover;
+    }
   }
 
   .quiz-upload-file {
@@ -43,11 +48,5 @@
     &:hover {
       background-color: #ddd;
     }
-  }
-
-  .quiz-image {
-    height: 100%;
-    width: 480px;
-    object-fit: cover;
   }
 }

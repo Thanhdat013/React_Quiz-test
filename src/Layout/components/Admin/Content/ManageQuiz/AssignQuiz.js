@@ -1,29 +1,30 @@
-import Select from "react-select";
-import { useTranslation } from "react-i18next";
+import Select from "react-select"
+import { useTranslation } from "react-i18next"
 
-import { useState, useEffect } from "react";
+import { useState, useEffect } from "react"
 
 import {
   getAllQuiz,
   getAllUser,
   postAssignQuizForUser,
-} from "~/services/ApiServices";
-import { Button } from "react-bootstrap";
-import { toast } from "react-toastify";
+  getQuizWithQA,
+} from "~/services/ApiServices"
+import { Button } from "react-bootstrap"
+import { toast } from "react-toastify"
 
 const AssignQuiz = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
 
-  const [listQuiz, setListQuiz] = useState([]);
-  const [selectedQuiz, setSelectedQuiz] = useState({});
+  const [listQuiz, setListQuiz] = useState([])
+  const [selectedQuiz, setSelectedQuiz] = useState({})
 
-  const [listUser, setListUser] = useState([]);
-  const [selectedUser, setSelectedUser] = useState({});
+  const [listUser, setListUser] = useState([])
+  const [selectedUser, setSelectedUser] = useState({})
 
   useEffect(() => {
-    fetchListQuiz();
-    fetchListUser();
-  }, []);
+    fetchListQuiz()
+    fetchListUser()
+  }, [])
 
   // useEffect(() => {
   //   fetchListQuizWithQA();
@@ -35,42 +36,53 @@ const AssignQuiz = () => {
   // };
 
   const fetchListQuiz = async () => {
-    let res = await getAllQuiz();
+    let res = await getAllQuiz()
     if (res.EC === 0) {
       let quizAll = res.DT.map((item) => {
         return {
           value: item.id,
           label: `${item.id} - ${item.name}`,
-        };
-      });
-      setListQuiz(quizAll);
+        }
+      })
+      setListQuiz(quizAll)
     }
-  };
+  }
 
   const fetchListUser = async () => {
-    let res = await getAllUser();
+    let res = await getAllUser()
     if (res.EC === 0) {
       let userAll = res.DT.map((item) => {
         return {
           value: item.id,
           label: `${item.id} - ${item.username} - ${item.email}`,
-        };
-      });
-      setListUser(userAll);
+        }
+      })
+      setListUser(userAll)
     }
-  };
+  }
 
+  // selected user
+  const selectedCurrentUser = () => {
+    console.log(selectedUser.value)
+  }
+
+  // assign quiz to user
   const handleAssignQuizForUser = async () => {
     let res = await postAssignQuizForUser(
       selectedQuiz.value,
       selectedUser.value
-    );
+    )
     if (res && res.EC === 0) {
-      toast.success(res.EM);
+      toast.success(res.EM)
+      console.log(res)
+
+      let remainQuiz = await getQuizWithQA(+res.DT.quizId)
+      if (remainQuiz) {
+      }
     } else {
-      toast.error(res.EM);
+      toast.error(res.EM)
     }
-  };
+  }
 
   return (
     <>
@@ -101,7 +113,7 @@ const AssignQuiz = () => {
         {t("assignQuiz.assignQuizAssign")}{" "}
       </Button>
     </>
-  );
-};
+  )
+}
 
-export default AssignQuiz;
+export default AssignQuiz

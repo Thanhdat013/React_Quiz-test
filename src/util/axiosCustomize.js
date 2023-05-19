@@ -1,6 +1,7 @@
 import axios from "axios"
+import { useSelector } from "react-redux"
 import { store } from "~/redux/store"
-
+import { postRefreshToken } from "~/services/ApiServices"
 const NO_RETRY_HEADER = "x-no-retry"
 
 const getAxios = axios.create({
@@ -10,9 +11,12 @@ const getAxios = axios.create({
 
 // call api to refresh token
 const handleRefreshToken = async () => {
+  const email = store?.getState()?.user?.account?.email
+
   try {
     const refresh_token = localStorage.getItem("refresh_token")
-    const res = await getAxios.post("/api/v1/refresh-token", refresh_token)
+    let res = await postRefreshToken(email, refresh_token)
+
     if (res && res.DT) return res.DT.access_token
   } catch (e) {
     console.log("Error", e)
@@ -46,7 +50,7 @@ getAxios.interceptors.response.use(
     if (
       error?.config &&
       error.response &&
-      +error.response.status === 401 &&
+      +error.response.EC === -2 &&
       !error.config.headers[NO_RETRY_HEADER]
     ) {
       const access_token = await handleRefreshToken()
@@ -64,7 +68,7 @@ getAxios.interceptors.response.use(
     if (
       error.config &&
       error.response &&
-      +error.response.status === 400 &&
+      +error.response.EC === -2 &&
       error.config.url === "/api/v1/auth/refresh"
     ) {
       window.location.href = "/login"
