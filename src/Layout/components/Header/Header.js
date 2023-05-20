@@ -56,7 +56,7 @@ const Header = () => {
         <Container>
           <NavLink to="/" className={cx("navbar-brand")}>
             <img
-              src="https://www.rhumsaintaubin.com/wp-content/uploads/2021/07/eq.jpg"
+              src="https://anzanvietnam.com/editor//images/tu-duy-logic-2.jpg"
               alt=""
               className={cx("navbar-brand_logo")}
             />

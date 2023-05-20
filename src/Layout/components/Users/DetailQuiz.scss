@@ -88,6 +88,12 @@
     gap: 20px;
     .quiz-left {
       margin: 8px 0 24px;
+      .image {
+        height: 160px;
+        .question-image {
+          width: 260px;
+        }
+      }
     }
   }
 }
