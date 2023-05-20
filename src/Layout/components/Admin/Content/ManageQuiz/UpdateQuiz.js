@@ -139,7 +139,7 @@ function UpdateQuiz({
                 onChange={(e) => handelPreviewAvatar(e)}
               />
             </div>
-            <div className="col-md-12 image-preview">
+            <div className="col-md-12 image-preview mt-3">
               {previewAvatar ? (
                 <img
                   src={previewAvatar}

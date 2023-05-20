@@ -376,7 +376,7 @@ const QuizQA = () => {
               </div>
               <div className="add-questions-container-right ">
                 <form className="row g-3 questions-container-right ">
-                  <div className="col-md-12">
+                  <div className="col-md-12" style={{ cursor: "pointer" }}>
                     <input
                       type="file"
                       hidden
@@ -403,6 +403,7 @@ const QuizQA = () => {
                       {t("quizQA.quizQAUploadImage")}
                     </label>
                     <label
+                      style={{ cursor: "pointer" }}
                       className="form-label upload-file"
                       onClick={() => handleRemoveImage(item.id)}
                     >

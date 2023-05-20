@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react"
 
-import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
+import Button from "react-bootstrap/Button"
+import Modal from "react-bootstrap/Modal"
 
-import { FcPlus } from "react-icons/fc";
+import { FcPlus } from "react-icons/fc"
 
-import { toast } from "react-toastify";
+import { toast } from "react-toastify"
 
-import { useTranslation } from "react-i18next";
-import { putUpdateUser } from "~/services/ApiServices";
+import { useTranslation } from "react-i18next"
+import { putUpdateUser } from "~/services/ApiServices"
 
-import _ from "lodash";
+import _ from "lodash"
 
 function UpdateUser({
   fetchListUsers,
@@ -22,60 +22,60 @@ function UpdateUser({
   currentPage,
   setCurrentPage,
 }) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [userName, setUserName] = useState("");
-  const [role, setRole] = useState("USER");
-  const [avatar, setAvatar] = useState("");
-  const [previewAvatar, setPreviewAvatar] = useState("");
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [userName, setUserName] = useState("")
+  const [role, setRole] = useState("USER")
+  const [avatar, setAvatar] = useState("")
+  const [previewAvatar, setPreviewAvatar] = useState("")
 
   const handelPreviewAvatar = (e) => {
     if (e.target.files[0] !== undefined) {
-      setPreviewAvatar(URL.createObjectURL(e.target.files[0]));
-      setAvatar(e.target.files[0]);
-      e.target.value = null;
+      setPreviewAvatar(URL.createObjectURL(e.target.files[0]))
+      setAvatar(e.target.files[0])
+      e.target.value = null
     }
-  };
+  }
 
   useEffect(() => {
     if (!_.isEmpty(dataUpdateUser)) {
       // check xem nếu không phải là Object rỗng
-      setEmail(dataUpdateUser.email);
-      setUserName(dataUpdateUser.username);
-      setRole(dataUpdateUser.role);
-      setAvatar("");
+      setEmail(dataUpdateUser.email)
+      setUserName(dataUpdateUser.username)
+      setRole(dataUpdateUser.role)
+      setAvatar("")
       if (dataUpdateUser.image) {
-        setPreviewAvatar(`data:image/jpeg;base64,${dataUpdateUser.image}`);
+        setPreviewAvatar(`data:image/jpeg;base64,${dataUpdateUser.image}`)
       }
     }
-  }, [dataUpdateUser]);
+  }, [dataUpdateUser])
 
   const handleClose = () => {
-    setShow(false);
-    setEmail("");
-    setPassword("");
-    setUserName("");
-    setRole("USER");
-    setAvatar("");
-    setPreviewAvatar("");
-    setDataUpdateUser({}); // set lại cho data của user thành Object rỗng đễ k lỗi useEffect
-  };
+    setShow(false)
+    setEmail("")
+    setPassword("")
+    setUserName("")
+    setRole("USER")
+    setAvatar("")
+    setPreviewAvatar("")
+    setDataUpdateUser({}) // set lại cho data của user thành Object rỗng đễ k lỗi useEffect
+  }
 
   const handleSubmitCreateUser = async () => {
-    let data = await putUpdateUser(dataUpdateUser.id, userName, role, avatar);
+    let data = await putUpdateUser(dataUpdateUser.id, userName, role, avatar)
 
     if (data && data.EC === 0) {
-      toast.success(data.EM);
-      handleClose();
+      toast.success(data.EM)
+      handleClose()
       // await fetchListUsers();
-      await fetchListUsersWithPaginate(currentPage);
+      await fetchListUsersWithPaginate(currentPage)
     }
 
     if (data && data.EC !== 0) {
-      toast.error(data.EM);
+      toast.error(data.EM)
     }
-  };
-  const { t } = useTranslation();
+  }
+  const { t } = useTranslation()
 
   return (
     <>
@@ -143,7 +143,7 @@ function UpdateUser({
                 onChange={(e) => handelPreviewAvatar(e)}
               />
             </div>
-            <div className="col-md-12 image-preview">
+            <div className="col-md-12 image-preview mt-3">
               {previewAvatar ? (
                 <img src={previewAvatar} className="image" />
               ) : (
@@ -162,7 +162,7 @@ function UpdateUser({
         </Modal.Footer>
       </Modal>
     </>
-  );
+  )
 }
 
-export default UpdateUser;
+export default UpdateUser

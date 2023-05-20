@@ -66,9 +66,9 @@
       }
 
       .question-image {
-        height: auto;
+        height: 90%;
         width: 90%;
-        object-fit: cover;
+        object-fit: contain;
       }
       .question-btn-image {
         display: flex;

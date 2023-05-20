@@ -1,60 +1,60 @@
-import { useTranslation } from "react-i18next";
-import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import Form from "react-bootstrap/Form";
-import { FcPlus } from "react-icons/fc";
-import Button from "react-bootstrap/Button";
-import { toast } from "react-toastify";
-import { postUpdateProfile } from "~/services/ApiServices";
-import _ from "lodash";
+import { useTranslation } from "react-i18next"
+import { useEffect, useState } from "react"
+import { useSelector } from "react-redux"
+import Form from "react-bootstrap/Form"
+import { FcPlus } from "react-icons/fc"
+import Button from "react-bootstrap/Button"
+import { toast } from "react-toastify"
+import { postUpdateProfile } from "~/services/ApiServices"
+import _ from "lodash"
 
-import "./UserSetting.scss";
+import "./UserSetting.scss"
 
 function UserInformation({ show, setShow }) {
-  const currentAccount = useSelector((state) => state.user.account);
+  const currentAccount = useSelector((state) => state.user.account)
 
   const handleClose = () => {
-    setShow(false);
-  };
+    setShow(false)
+  }
   const handleUpdateProfile = async () => {
-    let res = await postUpdateProfile(userName, avatar);
+    let res = await postUpdateProfile(userName, avatar)
     if (res && res.EC === 0) {
-      toast.success(res.EM);
+      toast.success(res.EM)
       // handleClose();
     }
     if (res && res.EC !== 0) {
-      toast.error(res.EM);
+      toast.error(res.EM)
     }
-    console.log(res);
-    console.log(currentAccount);
-  };
+    console.log(res)
+    console.log(currentAccount)
+  }
 
-  const { t } = useTranslation();
-  const [userName, setUserName] = useState("");
-  const [email, setEmail] = useState("");
-  const [role, setRole] = useState("");
-  const [avatar, setAvatar] = useState("");
-  const [previewAvatar, setPreviewAvatar] = useState("");
+  const { t } = useTranslation()
+  const [userName, setUserName] = useState("")
+  const [email, setEmail] = useState("")
+  const [role, setRole] = useState("")
+  const [avatar, setAvatar] = useState("")
+  const [previewAvatar, setPreviewAvatar] = useState("")
 
   useEffect(() => {
     if (currentAccount && !_.isEmpty(currentAccount)) {
-      setUserName(currentAccount.userName);
-      setEmail(currentAccount.email);
-      setRole(currentAccount.role);
-      setAvatar("");
+      setUserName(currentAccount.userName)
+      setEmail(currentAccount.email)
+      setRole(currentAccount.role)
+      setAvatar("")
       if (currentAccount.image) {
-        setPreviewAvatar(`data:image/jpeg;base64, ${currentAccount.image}`);
+        setPreviewAvatar(`data:image/jpeg;base64, ${currentAccount.image}`)
       }
     }
-  }, [currentAccount]);
+  }, [currentAccount])
 
   const handelPreviewAvatar = (e) => {
     if (e.target.files[0] !== undefined) {
-      setPreviewAvatar(URL.createObjectURL(e.target.files[0]));
-      setAvatar(e.target.files[0]);
-      e.target.value = null;
+      setPreviewAvatar(URL.createObjectURL(e.target.files[0]))
+      setAvatar(e.target.files[0])
+      e.target.value = null
     }
-  };
+  }
 
   return (
     <>
@@ -92,7 +92,7 @@ function UserInformation({ show, setShow }) {
             ></Form.Control>
           </Form.Group>
 
-          <Form.Group className="col-md-12 image-preview">
+          <Form.Group className="col-md-12 image-preview mt-3">
             {previewAvatar ? (
               <img src={previewAvatar} className="image" />
             ) : (
@@ -128,7 +128,7 @@ function UserInformation({ show, setShow }) {
         </Form.Group>
       </Form>
     </>
-  );
+  )
 }
 
-export default UserInformation;
+export default UserInformation
