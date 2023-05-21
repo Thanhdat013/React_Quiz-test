@@ -68,13 +68,17 @@ const Header = () => {
               <NavLink to="/" className={cx("nav-link")}>
                 {t("header.headerHome")}
               </NavLink>
-              <NavLink to="/users" className={cx("nav-link")}>
-                {t("header.headerUsers")}
-              </NavLink>
-              {role === "ADMIN" && (
-                <NavLink to="/admin" className={cx("nav-link")}>
-                  {t("header.headerAdmin")}
-                </NavLink>
+              {isAuthenticated && (
+                <>
+                  <NavLink to="/users" className={cx("nav-link")}>
+                    {t("header.headerUsers")}
+                  </NavLink>
+                  {role === "ADMIN" && (
+                    <NavLink to="/admin" className={cx("nav-link")}>
+                      {t("header.headerAdmin")}
+                    </NavLink>
+                  )}
+                </>
               )}
             </Nav>
             <Nav>
